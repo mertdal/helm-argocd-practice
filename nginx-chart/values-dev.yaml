@@ -1,10 +1,9 @@
-# Development Ortamı Ayarları
-replicaCount: 1
+replicaCount: 2
 
 image:
-  repository: nginx
+  repository: my-onepage-app
   pullPolicy: IfNotPresent
-  tag: "alpine"
+  tag: "v1.0.0"
 
 service:
   type: ClusterIP
@@ -12,14 +11,8 @@ service:
 
 resources:
   limits:
-    cpu: 200m
-    memory: 256Mi
-  requests:
     cpu: 50m
     memory: 64Mi
-
-env:
-  - name: APP_ENV
-    value: "development"
-  - name: WELCOME_MSG
-    value: "Merhaba! Burasi DEV ortami."
+  requests:
+    cpu: 25Mi
+    memory: 32Mi
