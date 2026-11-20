@@ -1,0 +1,25 @@
+# Development Ortamı Ayarları
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: "alpine"
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+env:
+  - name: APP_ENV
+    value: "development"
+  - name: WELCOME_MSG
+    value: "Merhaba! Burasi DEV ortami."

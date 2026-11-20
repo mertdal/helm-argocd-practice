@@ -1,0 +1,25 @@
+# Production (Canlı) Ortamı Ayarları
+replicaCount: 2
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: "1.25.4"
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+env:
+  - name: APP_ENV
+    value: "production"
+  - name: WELCOME_MSG
+    value: "Dikkat! Burasi CANLI (PRODUCTION) ortami."
